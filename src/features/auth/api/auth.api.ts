@@ -14,7 +14,6 @@ import type {
     PasswordResetRequest,
     ConfirmPasswordRequest,
     EmailVerifyResponse,
-    ResendVerificationRequest,
     LogoutResponse,
     TokenIntrospectionResponse,
 } from '@/types';

@@ -104,7 +104,13 @@ export default function HomePage() {
   );
 }
 
-function FeatureCard({ icon, title, desc }) {
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
+
+function FeatureCard({ icon, title, desc }: FeatureCardProps) {
   return (
     <Card className="bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 hover:shadow-lg transition-all duration-300 ease-in-out">
       <CardHeader className="flex flex-row items-center gap-3">
@@ -116,14 +122,4 @@ function FeatureCard({ icon, title, desc }) {
   );
 }
 
-function StepCard({ step, title, desc }) {
-  return (
-    <Card className="bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 hover:shadow-lg transition-all duration-300 ease-in-out">
-      <CardHeader>
-        <p className="text-sm text-indigo-400">{step}</p>
-        <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="text-zinc-400">{desc}</CardContent>
-    </Card>
-  );
-}
+

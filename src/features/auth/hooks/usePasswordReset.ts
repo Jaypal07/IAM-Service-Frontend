@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import * as authApi from '../api/auth.api';
 import type { PasswordResetRequest, ConfirmPasswordRequest } from '@/types';
-import { parseApiError, getErrorMessage, sanitizeEmail, isValidEmail, isValidPassword } from '@/lib/utils';
+import { getErrorMessage, sanitizeEmail, isValidEmail, isValidPassword } from '@/lib/utils';
 import { SUCCESS_MESSAGES } from '@/constants';
 import toast from 'react-hot-toast';
 
