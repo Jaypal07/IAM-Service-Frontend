@@ -24,6 +24,7 @@ import { RoleType } from "./types/roles-permissions.types.ts";
 import Features from "./pages/Features.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import Settings from "./pages/user/Settings.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
@@ -41,7 +42,7 @@ createRoot(document.getElementById("root")!).render(
           </Route>
 
           {/* Auth Flow Routes */}
-          <Route path="/verify-email" element={<EmailVerify />} />
+          <Route path="/email-verify" element={<EmailVerify />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
 
@@ -64,6 +65,9 @@ createRoot(document.getElementById("root")!).render(
           {/* OAuth Routes */}
           <Route path="/oauth/success" element={<OAuthSuccess />} />
           <Route path="/oauth/failure" element={<OAuthFailure />} />
+
+          {/* 404 Not Found - Catch all */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
