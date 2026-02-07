@@ -3,7 +3,7 @@
  * Centralized API routes matching Spring Boot backend structure
  */
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://3.110.155.78.nip.io:8080/api/v1';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 /**
  * Authentication Endpoints (/api/v1/auth)

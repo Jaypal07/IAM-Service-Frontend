@@ -20,5 +20,19 @@ export default defineConfig({
         }
       }
     }
+  },
+  server: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://3.110.155.78.nip.io:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/oauth2': {
+        target: 'http://3.110.155.78.nip.io:8080',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })
