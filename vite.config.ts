@@ -32,6 +32,11 @@ export default defineConfig({
         target: 'http://3.110.155.78.nip.io:8080',
         changeOrigin: true,
         secure: false,
+      },
+      '/login/oauth2/code': {
+        target: 'http://3.110.155.78.nip.io:8080',
+        changeOrigin: true,
+        secure: false,
       }
     }
   }
