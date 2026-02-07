@@ -21,7 +21,7 @@ function Login() {
   const { formData, loading, error, handleChange, handleSubmit } = useLogin();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ function Login() {
             )}
           </CardHeader>
 
-          <CardContent className="space-y-6">
+          <CardContent className="space-y-4">
             {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -100,16 +100,45 @@ function Login() {
               )}
             </Button>
 
-            {/* Divider */}
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-zinc-200 dark:border-zinc-700" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-500">
-                  Or continue with
-                </span>
-              </div>
+            {/* Toggle for Demo Accounts to save space */}
+            <div className="space-y-2">
+               <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-zinc-200 dark:border-zinc-700" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-500">
+                      Or
+                    </span>
+                  </div>
+                </div>
+            
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      handleChange('email', 'user@example.com');
+                      handleChange('password', 'password');
+                    }}
+                    className="w-full text-xs h-8"
+                  >
+                    Demo User
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      handleChange('email', 'admin@example.com');
+                      handleChange('password', 'admin');
+                    }}
+                    className="w-full text-xs h-8"
+                  >
+                    Demo Admin
+                  </Button>
+                </div>
             </div>
 
             {/* Social Login */}
@@ -128,8 +157,8 @@ function Login() {
           </CardContent>
         </Card>
 
-        {/* Footer */}
-        <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        {/* Footer - Hide on small screens to prevent scroll */}
+        <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400 hidden md:block">
           Secured with modern encryption and token based authentication
         </p>
       </motion.div>

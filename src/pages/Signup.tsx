@@ -21,7 +21,7 @@ function SignUp() {
   const { formData, loading, error, handleChange, handleSubmit } = useRegister();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ function SignUp() {
             )}
           </CardHeader>
 
-          <CardContent className="space-y-6">
+          <CardContent className="space-y-4">
             {/* Name */}
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
@@ -118,7 +118,7 @@ function SignUp() {
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-500">
-                  Or continue with
+                  Or
                 </span>
               </div>
             </div>
@@ -140,7 +140,7 @@ function SignUp() {
         </Card>
 
         {/* Footer */}
-        <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400 hidden md:block">
           By creating an account, you agree to our security and privacy
           practices
         </p>

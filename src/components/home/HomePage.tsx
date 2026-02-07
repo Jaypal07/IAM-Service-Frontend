@@ -56,42 +56,42 @@ export default function HomePage() {
           <FeatureCard
             icon={<ShieldCheck />}
             title="Secure Registration"
-            desc="Validated sign ups with strong hashing, email verification, and abuse protection."
+            desc="Input validation with Jakarta Validation API and BCrypt password encryption."
           />
           <FeatureCard
             icon={<Lock />}
-            title="JWT Access Tokens"
-            desc="Short lived JWTs signed securely for fast, stateless authentication."
+            title="JWT Authenticated"
+            desc="Stateless security context with short-lived access tokens and httpOnly refresh cookies."
           />
           <FeatureCard
             icon={<Zap />}
-            title="Refresh Tokens"
-            desc="Long lived refresh tokens with automatic rotation and reuse detection."
-          />
-          <FeatureCard
-            icon={<Fingerprint />}
             title="Token Rotation"
-            desc="Every refresh invalidates the previous token to reduce blast radius."
-          />
-          <FeatureCard
-            icon={<Lock />}
-            title="Single Device Login"
-            desc="Only one active session per user. New login revokes old sessions."
-          />
-          <FeatureCard
-            icon={<Lock />}
-            title="Password Login"
-            desc="Industry standard password authentication using modern hashing algorithms."
+            desc="Automatic token rotation with reuse detection to prevent replay attacks."
           />
           <FeatureCard
             icon={<Fingerprint />}
-            title="Social Login"
-            desc="OAuth based login with Google and GitHub out of the box."
+            title="RBAC Authorization"
+            desc="Method-level security control using @PreAuthorize and custom permission evaluators."
+          />
+          <FeatureCard
+            icon={<Lock />}
+            title="Session Management"
+            desc="Concurrent session control prevents multiple logins and handles cleanouts."
+          />
+          <FeatureCard
+            icon={<Lock />}
+            title="Secure Headers"
+            desc="Helmet equivalent security headers configured in Spring Security config."
+          />
+          <FeatureCard
+            icon={<Fingerprint />}
+            title="OAuth2 Client"
+            desc="Standardized OpenID Connect integration for social login providers."
           />
           <FeatureCard
             icon={<Zap />}
-            title="Forgot Password"
-            desc="Secure reset flows using expiring tokens and verified email ownership."
+            title="Rate Limiting"
+            desc="Bucket4j implementation to protect public endpoints from brute force attacks."
           />
         </div>
       </section>
