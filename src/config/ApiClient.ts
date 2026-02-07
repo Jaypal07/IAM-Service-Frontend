@@ -6,7 +6,7 @@ import { refreshToken } from "./RefreshClient";
    MAIN API CLIENT
 ========================= */
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8081/api/v1",
+  baseURL: import.meta.env.VITE_API_BASE_URL || "http://3.110.155.78.nip.io:8080/api/v1",
   headers: {
     "Content-Type": "application/json",
   },
