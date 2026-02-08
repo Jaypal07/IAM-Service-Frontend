@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/oauth2/:path*",
-      "destination": "/api/oauth-proxy/:path*"
+      "source": "/oauth2/(.*)",
+      "destination": "/api/oauth-proxy/$1"
     },
     {
-      "source": "/api/v1/:path*",
-      "destination": "/api/proxy/:path*"
+      "source": "/api/v1/(.*)",
+      "destination": "/api/proxy/$1"
     },
     {
       "source": "/(.*)",
