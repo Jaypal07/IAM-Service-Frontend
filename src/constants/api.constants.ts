@@ -58,10 +58,18 @@ export const HEALTH_ENDPOINTS = {
 
 /**
  * OAuth2 Authorization Endpoints
- * These use full URLs to ensure proper port handling
+ * Environment-aware URLs:
+ * - Production: Relative URLs to use Vercel proxy (ensures cookies on same domain)
+ * - Development: Full URLs to backend server
  */
+const IS_PRODUCTION = import.meta.env.PROD;
+
 export const OAUTH2_ENDPOINTS = {
-  GOOGLE: `${BASE_URL}/oauth2/authorization/google`,
-  GITHUB: `${BASE_URL}/oauth2/authorization/github`,
+  GOOGLE: IS_PRODUCTION
+    ? '/oauth2/authorization/google'
+    : `${BASE_URL}/oauth2/authorization/google`,
+  GITHUB: IS_PRODUCTION
+    ? '/oauth2/authorization/github'
+    : `${BASE_URL}/oauth2/authorization/github`,
 } as const;
 
