@@ -9,7 +9,7 @@
       "destination": "/api/proxy/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/:path((?!api|oauth2).*)*",
       "destination": "/index.html"
     }
   ]
