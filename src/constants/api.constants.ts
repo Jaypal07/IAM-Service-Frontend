@@ -3,6 +3,7 @@
  * Centralized API routes matching Spring Boot backend structure
  */
 
+export const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 /**
@@ -54,3 +55,13 @@ export const HEALTH_ENDPOINTS = {
   HEALTH: '/health',
   ACTUATOR_HEALTH: '/actuator/health',
 } as const;
+
+/**
+ * OAuth2 Authorization Endpoints
+ * These use full URLs to ensure proper port handling
+ */
+export const OAUTH2_ENDPOINTS = {
+  GOOGLE: `${BASE_URL}/oauth2/authorization/google`,
+  GITHUB: `${BASE_URL}/oauth2/authorization/github`,
+} as const;
+
