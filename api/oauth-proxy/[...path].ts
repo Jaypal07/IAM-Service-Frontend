@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const BACKEND_URL = 'http://3.110.155.78.nip.io:8080';
 
+// OAuth2 proxy handler for Vercel
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { path } = req.query;
 
