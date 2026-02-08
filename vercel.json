@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/oauth2/:path*",
@@ -7,10 +9,6 @@
     {
       "source": "/api/v1/:path*",
       "destination": "/api/proxy/:path*"
-    },
-    {
-      "source": "/:path((?!api|oauth2).*)*",
-      "destination": "/index.html"
     }
   ]
 }
