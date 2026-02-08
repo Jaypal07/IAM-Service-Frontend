@@ -7,6 +7,10 @@
     {
       "source": "/api/v1/:path*",
       "destination": "/api/proxy/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
