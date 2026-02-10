@@ -25,6 +25,7 @@ import Features from "./pages/Features.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import Settings from "./pages/user/Settings.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import About from "./pages/About/About.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
@@ -33,6 +34,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<RootLayout />}>
           <Route index element={<App />} />
           
+
           {/* Guest Routes (unauthenticated only) */}
           <Route element={<GuestRoute />}>
             <Route path="/login" element={<Login />} />
@@ -40,6 +42,10 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
           </Route>
+          
+          {/* Public Routes */}
+          <Route path="/about" element={<About />} />
+
 
           {/* Auth Flow Routes */}
           <Route path="/email-verify" element={<EmailVerify />} />
