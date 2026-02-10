@@ -10,7 +10,7 @@ interface SkillGroupProps {
 
 export function SkillGroup({ category, items, icon: Icon }: SkillGroupProps) {
   return (
-    <Card className="bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800 shadow-sm h-full hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors">
+    <Card className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border-zinc-200/50 dark:border-zinc-800/50 shadow-sm h-full hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 transform hover:-translate-y-1">
       <CardHeader className="flex flex-row items-center gap-2 pb-2 px-4 pt-4">
         <div className="p-1.5 bg-indigo-50 dark:bg-indigo-900/10 rounded-lg text-indigo-600 dark:text-indigo-400">
           <Icon className="h-4 w-4" />

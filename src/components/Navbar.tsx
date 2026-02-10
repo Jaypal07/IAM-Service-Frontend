@@ -31,9 +31,9 @@ function Navbar() {
               <NavLink to="/features" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
                 Features
               </NavLink>
-              <NavLink to="/pricing" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+              {/* <NavLink to="/pricing" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
                 Pricing
-              </NavLink>
+              </NavLink> */}
               <NavLink to="/about" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
                 About Me
               </NavLink>

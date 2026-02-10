@@ -1,8 +1,8 @@
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github} from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -13,43 +13,43 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
   return (
-    <Card className="flex flex-col h-full bg-zinc-50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 group transform hover:-translate-y-1">
-      <CardHeader className="pb-3">
-        <div className="flex justify-between items-start gap-4">
-          <CardTitle className="text-lg font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-            {title}
-          </CardTitle>
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full"
+    <Card className="group relative overflow-hidden bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200/50 dark:border-zinc-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1">
+      <div className="flex flex-col md:flex-row gap-6 p-6 md:items-start">
+        <div className="flex-1 space-y-4">
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3">
+              <CardTitle className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                {title}
+              </CardTitle>
+              <Badge variant="outline" className="hidden md:inline-flex text-xs font-normal text-zinc-500">
+                featured
+              </Badge>
+            </div>
+            
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed max-w-2xl">
+              {description}
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+             {tags.map((tag) => (
+                <Badge key={tag} variant="secondary" className="bg-white/50 dark:bg-zinc-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors">
+                  {tag}
+                </Badge>
+              ))}
+          </div>
+        </div>
+
+        <div className="flex md:flex-col gap-3 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-zinc-100 dark:border-zinc-800/50 md:pl-6">
+          <Button 
+            size="sm"
+            className="flex-1 md:w-32 justify-start gap-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 shadow-md hover:shadow-lg transition-all"
+            onClick={() => window.open(link, '_blank')}
           >
-            <Github className="h-5 w-5" />
-          </a>
+            <Github className="h-4 w-4" /> Source Code
+          </Button>
         </div>
-        <CardDescription className="text-sm pt-1 leading-relaxed">
-          {description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="flex-1">
-        <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="bg-white dark:bg-zinc-800 font-normal hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-      <CardFooter className="pt-4 border-t border-zinc-100 dark:border-zinc-800/50">
-        <Button 
-          variant="ghost" 
-          className="w-full text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 group/btn"
-          onClick={() => window.open(link, '_blank')}
-        >
-          View Project <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
-      </CardFooter>
+      </div>
     </Card>
   );
 }

@@ -120,4 +120,35 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Global Cursor Behavior */
+  button,
+  a,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    cursor: pointer;
+  }
+
+  /* Disabled state overrides */
+  button:disabled,
+  a[aria-disabled="true"],
+  [role="button"][aria-disabled="true"],
+  input:disabled,
+  textarea:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Ensure text inputs properties */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text;
+  }
 }

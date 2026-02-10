@@ -22,7 +22,7 @@ import UserManagement from "./features/admin/pages/UserManagement.tsx";
 import UserDetails from "./features/admin/pages/UserDetails.tsx";
 import { RoleType } from "./types/roles-permissions.types.ts";
 import Features from "./pages/Features.tsx";
-import Pricing from "./pages/Pricing.tsx";
+// import Pricing from "./pages/Pricing.tsx";
 import Settings from "./pages/user/Settings.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import About from "./pages/About/About.tsx";
@@ -40,7 +40,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/features" element={<Features />} />
-            <Route path="/pricing" element={<Pricing />} />
+            {/* <Route path="/pricing" element={<Pricing />} /> */}
           </Route>
           
           {/* Public Routes */}
