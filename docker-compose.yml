@@ -1,5 +1,6 @@
 services:
   frontend:
+    image: jaypalkoli/iam-service-frontend:v1.0
     build: .
     ports:
       - "8080:80"

@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 import { useAuthStore } from "@/features/auth/store/auth.store";
 import { UserMenu } from "./UserMenu";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Navbar() {
@@ -40,6 +40,15 @@ function Navbar() {
 
         {/* Right side links */}
         <div className="flex gap-4 items-center">
+          <a
+            href="https://github.com/Jaypal07/IAM-Service"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            title="View Source on GitHub"
+          >
+            <Github className="h-5 w-5" />
+          </a>
           <ThemeToggle />
           {isAuthenticated ? (
             <UserMenu />

@@ -11,14 +11,26 @@ import { Label } from "@/components/ui/label";
 import { CheckCircle2Icon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Alert, AlertTitle } from "@/components/ui/alert";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Spinner } from "@/components/ui/spinner";
 import OAuth2Buttons from "@/components/OAuth2Buttons";
 import { useLogin } from "@/features/auth/hooks/useLogin";
 import { APP_ROUTES } from "@/constants";
+import { useEffect } from "react";
 
 function Login() {
   const { formData, loading, error, handleChange, handleSubmit } = useLogin();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.demo === 'admin') {
+      handleChange('email', 'admin@example.com');
+      handleChange('password', 'admin');
+    } else if (location.state?.demo === 'user') {
+      handleChange('email', 'user@example.com');
+      handleChange('password', 'password');
+    }
+  }, [location.state]);
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
@@ -100,43 +112,44 @@ function Login() {
               )}
             </Button>
 
-            {/* Toggle for Demo Accounts to save space */}
-            <div className="space-y-2">
-               <div className="relative">
+            {/* Demo / Recruiter Access Section */}
+            <div className="pt-2">
+               <div className="relative mb-4">
                   <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-zinc-200 dark:border-zinc-700" />
+                    <span className="w-full border-t border-zinc-200 dark:border-zinc-800" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
                     <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-500">
-                      Or
+                      Recruiter / Demo Access
                     </span>
                   </div>
                 </div>
             
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   <Button
                     type="button"
                     variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      handleChange('email', 'user@example.com');
-                      handleChange('password', 'password');
-                    }}
-                    className="w-full text-xs h-8"
-                  >
-                    Demo User
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
                     onClick={() => {
                       handleChange('email', 'admin@example.com');
                       handleChange('password', 'admin');
                     }}
-                    className="w-full text-xs h-8"
+                    className="h-auto py-2 flex flex-col items-center gap-1 border-indigo-200 dark:border-indigo-900/30 bg-indigo-50/50 dark:bg-indigo-900/10 hover:bg-indigo-100 dark:hover:bg-indigo-900/20 hover:border-indigo-300 transition-all"
                   >
-                    Demo Admin
+                    <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-400">Admin Demo</span>
+                    <span className="text-[10px] text-zinc-500 font-mono">admin / admin</span>
+                  </Button>
+                  
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      handleChange('email', 'user@example.com');
+                      handleChange('password', 'password');
+                    }}
+                    className="h-auto py-2 flex flex-col items-center gap-1 border-emerald-200 dark:border-emerald-900/30 bg-emerald-50/50 dark:bg-emerald-900/10 hover:bg-emerald-100 dark:hover:bg-emerald-900/20 hover:border-emerald-300 transition-all"
+                  >
+                    <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">User Demo</span>
+                    <span className="text-[10px] text-zinc-500 font-mono">user / password</span>
                   </Button>
                 </div>
             </div>
