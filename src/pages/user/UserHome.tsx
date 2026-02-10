@@ -22,8 +22,8 @@ function UserHome() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6">
-      <div className="mb-8 flex items-center gap-4">
+    <div className="h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 p-4">
+      <div className="mb-6 flex items-center gap-4">
         {user && (
           <Avatar 
             user={{

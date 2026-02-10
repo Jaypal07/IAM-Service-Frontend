@@ -90,8 +90,8 @@ function UserProfile() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6">
-      <div className="mx-auto max-w-4xl space-y-8">
+    <div className="h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 p-4">
+      <div className="mx-auto max-w-4xl space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">

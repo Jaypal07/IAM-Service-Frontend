@@ -8,8 +8,8 @@ export default function Settings() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6">
-      <div className="mx-auto max-w-4xl space-y-8">
+    <div className="h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 p-4">
+      <div className="mx-auto max-w-4xl space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">Settings</h1>
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">

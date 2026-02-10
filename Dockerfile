@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 
 # Production Stage
-FROM nginx:alpine-slim
+FROM nginx:alpine
 
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*

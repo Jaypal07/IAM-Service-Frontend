@@ -20,9 +20,16 @@ function OAuthSuccess() {
 
     const handleOAuthSuccess = async () => {
       try {
+        console.log('[OAuth] Starting token refresh after OAuth success');
+        
         // Backend has set refresh token as httpOnly cookie
         // Call refresh endpoint to get access token
         const tokenResponse = await authApi.refresh();
+
+        console.log('[OAuth] Token refresh successful', {
+          hasAccessToken: !!tokenResponse?.accessToken,
+          hasUser: !!tokenResponse?.user,
+        });
 
         if (!tokenResponse?.accessToken) {
           throw new Error("No access token returned");
@@ -36,7 +43,19 @@ function OAuthSuccess() {
         toast.success(SUCCESS_MESSAGES.LOGIN);
         navigate(APP_ROUTES.DASHBOARD);
       } catch (error) {
-        console.error("OAuth login failed:", error);
+        console.error("[OAuth] Token refresh failed:", error);
+        
+        // Log detailed error information for debugging
+        if (error && typeof error === 'object' && 'isAxiosError' in error) {
+          const axiosError = error as any;
+          console.error("[OAuth] Response status:", axiosError.response?.status);
+          console.error("[OAuth] Response data:", axiosError.response?.data);
+          console.error("[OAuth] Request config:", {
+            url: axiosError.config?.url,
+            method: axiosError.config?.method,
+            withCredentials: axiosError.config?.withCredentials,
+          });
+        }
 
         if (!isMounted) return;
 

@@ -1,29 +1,26 @@
 
 import { Button } from "./ui/button";
 import { Github, Mail } from "lucide-react";
-import { NavLink } from "react-router";
+import { OAUTH2_ENDPOINTS } from "@/constants";
+
 
 function OAuth2Buttons() {
   return (
     <div className="grid gap-3">
-      <NavLink
-        to={`${
-          import.meta.env.VITE_BASE_URL || "http://localhost:8081"
-        }/oauth2/authorization/google`}
+      <a
+        href={OAUTH2_ENDPOINTS.GOOGLE}
       >
         <Button variant="outline" className="w-full flex items-center gap-2 cursor-pointer">
           <Mail className="h-4 w-4" /> Continue with Google
         </Button>
-      </NavLink>
-      <NavLink
-        to={`${
-          import.meta.env.VITE_BASE_URL || "http://localhost:8081"
-        }/oauth2/authorization/github`}
+      </a>
+      <a
+        href={OAUTH2_ENDPOINTS.GITHUB}
       >
         <Button variant="outline" className="w-full flex items-center gap-2 cursor-pointer">
           <Github className="h-4 w-4" /> Continue with GitHub
         </Button>
-      </NavLink>
+      </a>
     </div>
   );
 }

@@ -51,7 +51,7 @@ function UserManagement() {
     }, [users, searchTerm]);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-white to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 p-6">
+        <div className="h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden bg-gradient-to-br from-zinc-50 via-white to-zinc-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 p-4">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-6">

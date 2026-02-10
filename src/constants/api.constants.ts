@@ -3,7 +3,10 @@
  * Centralized API routes matching Spring Boot backend structure
  */
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8081/api/v1';
+// Default to empty in production to avoid mixed content/CORS issues if not set, 
+// but allow localhost for dev if env var is missing.
+export const BASE_URL = import.meta.env.VITE_BASE_URL || (import.meta.env.PROD ? '' : 'http://localhost:8080');
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? '/api/v1' : '/api/v1');
 
 /**
  * Authentication Endpoints (/api/v1/auth)
@@ -54,3 +57,15 @@ export const HEALTH_ENDPOINTS = {
   HEALTH: '/health',
   ACTUATOR_HEALTH: '/actuator/health',
 } as const;
+
+/**
+ * OAuth2 Authorization Endpoints
+ * Environment-aware URLs:
+ * - Production: Relative URLs to use Vercel proxy (ensures cookies on same domain)
+ * - Development: Full URLs to backend server
+ */
+export const OAUTH2_ENDPOINTS = {
+  GOOGLE: `${BASE_URL}/oauth2/authorization/google`,
+  GITHUB: `${BASE_URL}/oauth2/authorization/github`,
+} as const;
+
