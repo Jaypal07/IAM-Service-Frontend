@@ -108,10 +108,10 @@ function UserHome() {
                 Manage your account settings and session.
               </p>
               <div className="grid gap-3">
-                <Button variant="outline" size="sm" className="justify-start gap-2" onClick={() => window.open('https://github.com', '_blank')}>
+                {/* <Button variant="outline" size="sm" className="justify-start gap-2" onClick={() => window.open('https://github.com', '_blank')}>
                   <Activity className="h-3.5 w-3.5" />
                   View Activity Log
-                </Button>
+                </Button> */}
                 <Button variant="destructive" size="sm" className="justify-start gap-2" onClick={handleLogout}>
                   <ShieldCheck className="h-3.5 w-3.5" />
                   Logout Session

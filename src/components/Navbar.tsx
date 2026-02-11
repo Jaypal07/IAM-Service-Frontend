@@ -99,19 +99,19 @@ function Navbar() {
               >
                 Features
               </NavLink>
-              <NavLink 
+              {/* <NavLink 
                 to="/pricing" 
                 onClick={() => setIsOpen(false)}
                 className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-md"
               >
                 Pricing
-              </NavLink>
+              </NavLink> */}
               <NavLink 
                 to="/about" 
                 onClick={() => setIsOpen(false)}
                 className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-md"
               >
-                About
+                About Me
               </NavLink>
               <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-2" />
               <NavLink to="/login" onClick={() => setIsOpen(false)}>

@@ -1,18 +1,10 @@
-/**
- * Register Hook
- * Single Responsibility: Handle registration form state and submission
- */
-
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import type { RegisterRequest } from '@/types';
 import { useAuth } from './useAuth';
-import { APP_ROUTES } from '@/constants';
 import { sanitizeEmail, sanitizeName, isValidEmail, isValidPassword, isValidName } from '@/lib/utils';
 import toast from 'react-hot-toast';
 
 export const useRegister = () => {
-    const navigate = useNavigate();
     const { register: performRegister } = useAuth();
 
     const [formData, setFormData] = useState<RegisterRequest>({
@@ -22,6 +14,7 @@ export const useRegister = () => {
     });
 
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     /**
@@ -81,8 +74,8 @@ export const useRegister = () => {
             // Clear form
             setFormData({ name: '', email: '', password: '' });
 
-            // Redirect to login
-            navigate(APP_ROUTES.LOGIN);
+            // Show success state instead of navigating immediately
+            setSuccess(true);
         } catch (err: any) {
             setError(err.message || 'Registration failed');
         } finally {
@@ -94,6 +87,7 @@ export const useRegister = () => {
         formData,
         loading,
         error,
+        success,
         handleChange,
         handleSubmit,
     };

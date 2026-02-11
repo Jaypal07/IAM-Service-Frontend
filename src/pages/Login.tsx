@@ -25,10 +25,10 @@ function Login() {
   useEffect(() => {
     if (location.state?.demo === 'admin') {
       handleChange('email', 'admin@example.com');
-      handleChange('password', 'admin');
+      handleChange('password', 'Admin@123');
     } else if (location.state?.demo === 'user') {
       handleChange('email', 'user@example.com');
-      handleChange('password', 'password');
+      handleChange('password', 'Password@123');
     }
   }, [location.state]);
 
@@ -131,12 +131,12 @@ function Login() {
                     variant="outline"
                     onClick={() => {
                       handleChange('email', 'admin@example.com');
-                      handleChange('password', 'admin');
+                      handleChange('password', 'Admin@123');
                     }}
                     className="h-auto py-2 flex flex-col items-center gap-1 border-indigo-200 dark:border-indigo-900/30 bg-indigo-50/50 dark:bg-indigo-900/10 hover:bg-indigo-100 dark:hover:bg-indigo-900/20 hover:border-indigo-300 transition-all"
                   >
                     <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-400">Admin Demo</span>
-                    <span className="text-[10px] text-zinc-500 font-mono">admin / admin</span>
+                    <span className="text-[10px] text-zinc-500 font-mono">admin / Admin@123</span>
                   </Button>
                   
                   <Button
@@ -144,12 +144,12 @@ function Login() {
                     variant="outline"
                     onClick={() => {
                       handleChange('email', 'user@example.com');
-                      handleChange('password', 'password');
+                      handleChange('password', 'Password@123');
                     }}
                     className="h-auto py-2 flex flex-col items-center gap-1 border-emerald-200 dark:border-emerald-900/30 bg-emerald-50/50 dark:bg-emerald-900/10 hover:bg-emerald-100 dark:hover:bg-emerald-900/20 hover:border-emerald-300 transition-all"
                   >
                     <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">User Demo</span>
-                    <span className="text-[10px] text-zinc-500 font-mono">user / password</span>
+                    <span className="text-[10px] text-zinc-500 font-mono">user / Password@123</span>
                   </Button>
                 </div>
             </div>

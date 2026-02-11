@@ -124,11 +124,11 @@ export default function HomePage() {
                       </div>
                       <div>
                         <div className="text-sm font-medium text-zinc-900 dark:text-white">admin@example.com</div>
-                        <div className="text-xs text-zinc-500">Role: Owner / Admin</div>
+                        <div className="text-xs text-zinc-500">Role: Admin</div>
                       </div>
                     </div>
                     <div className="text-xs font-mono bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded text-zinc-600 dark:text-zinc-400">
-                      pass: admin
+                      pass: Admin@123
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="text-xs font-mono bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded text-zinc-600 dark:text-zinc-400">
-                      pass: password
+                      pass: Password@123
                     </div>
                   </div>
                 </div>

@@ -11,14 +11,23 @@ import { Label } from "@/components/ui/label";
 import { CheckCircle2Icon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Alert, AlertTitle } from "@/components/ui/alert";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
 import OAuth2Buttons from "@/components/OAuth2Buttons";
 import { useRegister } from "@/features/auth/hooks/useRegister";
 import { APP_ROUTES } from "@/constants";
 
 function SignUp() {
-  const { formData, loading, error, handleChange, handleSubmit } = useRegister();
+  const { formData, loading, error, success, handleChange, handleSubmit } = useRegister();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-white via-zinc-50 to-white dark:from-black dark:via-zinc-900 dark:to-black px-4">
@@ -145,6 +154,48 @@ function SignUp() {
           practices
         </p>
       </motion.div>
+
+      {/* Success Dialog */}
+      {/* Success Dialog */}
+      <Dialog open={success} onOpenChange={() => navigate(APP_ROUTES.LOGIN)}>
+        <DialogContent className="sm:max-w-md border-0 bg-transparent shadow-none p-0 overflow-hidden">
+             <div className="relative rounded-lg border border-zinc-200 bg-white/90 dark:bg-zinc-900/90 dark:border-zinc-800 backdrop-blur-xl shadow-2xl p-6">
+                {/* Decorative Gradient Line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500" />
+                
+                <DialogHeader className="gap-2">
+                    <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-500 ring-4 ring-green-50 dark:ring-green-900/10">
+                        <CheckCircle2Icon className="h-6 w-6" />
+                    </div>
+                
+                    <DialogTitle className="text-center text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
+                    Registration Successful
+                    </DialogTitle>
+                    <DialogDescription className="text-center text-sm text-zinc-500 dark:text-zinc-400">
+                    Your account has been created.
+                    </DialogDescription>
+                </DialogHeader>
+
+                <div className="py-4 text-center">
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+                    We've sent a verification link to your email address. 
+                    <br />
+                    Please check your inbox <span className="text-zinc-400">(and spam folder)</span> to verify your email before logging in.
+                    </p>
+                </div>
+
+                <DialogFooter className="sm:justify-center">
+                    <Button
+                    type="button"
+                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02]"
+                    onClick={() => navigate(APP_ROUTES.LOGIN)}
+                    >
+                    Go to Login
+                    </Button>
+                </DialogFooter>
+             </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
